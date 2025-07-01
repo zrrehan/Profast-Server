@@ -34,6 +34,11 @@ async function run() {
             const result = await delivery.insertOne(req.body);
             res.send(result);
         });
+
+        app.get("/get-items", async(req, res) => {
+            const result = await delivery.find().toArray();
+            res.send(result);
+        })
     }
 
     finally {
